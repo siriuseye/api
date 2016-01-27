@@ -3,9 +3,13 @@ HOST: http://seye.apiblueprint.org/api/v1/
 
 # Sirius Eye
 
-Sirius Eye is…
+Sirius Eye is a social networking platform with the goal of fostering peace through art.
 
 ## Friends Collection [/friends]
+
++ Attributes
+    - id
+    - username
 
 ### List All Questions [GET]
 
@@ -13,28 +17,6 @@ Sirius Eye is…
     + page: 1 (optional, number) - The page of questions to return
 
 + Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
 
 ### Create a New Question [POST]
 
