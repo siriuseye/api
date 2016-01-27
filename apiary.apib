@@ -5,7 +5,31 @@ HOST: http://seye.apiblueprint.org/api/v1/
 
 Sirius Eye is a social networking platform with the goal of fostering peace through art.
 
-## Friends Collection [/friends]
+# Group Users
+
+# Users Collection [/users]
+
+Resources related to the accounts of system participants.
+
+### Create a New User [POST]
+
+Add a user to the system.
+
++ Request (application/json)
+
+        - email address
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /friends/i2u3r8dh
+
+    + Body
+
+            - id
+
+# Friends [/friends]
 
 + Attributes
     - id
