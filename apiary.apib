@@ -1,65 +1,94 @@
-FORMAT: 1A
-HOST: http://seye.apiblueprint.org/api/v1/
-
-# Sirius Eye
-
-Sirius Eye is a social networking platform with the goal of fostering peace through art.
-
-# Group Users
-
-# Users Collection [/users]
-
-Resources related to the accounts of system participants.
-
-### Create a New User [POST]
-
-Add a user to the system.
-
-+ Request (application/json)
-
-        - email address
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /friends/i2u3r8dh
-
-    + Body
-
-            - id
-
-# Friends [/friends]
-
-+ Attributes
-    - id
-    - username
-    
-+ Param
-
-        - page
-
-### List All Friends [GET]
-
-+ Parameters
-    + page: 1 (optional, number) - The page of questions to return
-
-+ Response 200 (application/json)
-
-### Create a New User [POST]
-
-Add a user to the system.
-
-+ Request (application/json)
-
-        - email address
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /friends/i2u3r8dh
-
-    + Body
-
-            - id
+swagger: '2.0'
+info:
+  title: Sirius Eye
+  description: A social networking platform with the aim of peace through art.
+  version: "0.1"
+host: seye.apiary.io
+basePath: /api/v1/
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /login/params:
+    get:
+      description: Parameters for implicit OAuth authentications
+      responses:
+        200:
+          description: Auth parameters for various services
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AuthEndpoint'
+          examples:
+            service: google
+            response_type: token
+            client_id: googl-234kjh3krjh4234
+            redirect_uri: https://siriuseye.com/login/confirm?code=23oi4u2nj
+            scope: read
+  /login:
+    x-summary: Authenticate
+    x-description: 'Prove identity to the system'
+    post:
+      summary: 'Connect with email address'
+      parameters:
+        - schema:
+            $ref: '#/definitions/Login'
+          in: body
+          name: body
+      responses:
+        200:
+          description: 'Auth token'
+          schema:
+            $ref: '#/definitions/AuthToken'
+          examples:
+            application/json:
+              token: lqk34jh2lk34hjjh45
+  /users:
+    x-summary: Joined users
+    x-description: 'List joined users'
+    get:
+      responses:
+        200:
+          description: 'Auth'
+          examples:
+            application/json:
+              - id: l123i4hj234kjlh
+                username: bob
+              - id: l1223kj4hnnjj1l
+                username: alice
+definitions:
+  Login:
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+  AuthToken:
+    type: object
+    properties:
+      token:
+        type: string
+  AuthEndpoint:
+    type: object
+    properties:
+      service:
+        type: string
+      response_type:
+        type: string
+      client_id:
+        type: string
+      redirect_uri:
+        type: string
+      scope:
+        type: string
+  UserSummary:
+    type: object
+    properties:
+      id:
+        type: string
+      username:
+        type: string
