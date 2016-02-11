@@ -23,11 +23,12 @@ paths:
             items:
               $ref: '#/definitions/AuthEndpoint'
           examples:
-            service: google
-            response_type: token
-            client_id: googl-234kjh3krjh4234
-            redirect_uri: https://siriuseye.com/login/confirm?code=23oi4u2nj
-            scope: read
+            application/json:
+              service: google
+              response_type: token
+              client_id: googl-234kjh3krjh4234
+              redirect_uri: https://siriuseye.com/login/confirm?code=23oi4u2nj
+              scope: read
   /login:
     x-summary: Authenticate
     x-description: 'Prove identity to the system'
