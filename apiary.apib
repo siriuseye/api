@@ -1,3 +1,39 @@
+FORMAT: 1A
+HOST: http://seye.apiblueprint.org/api/v1/
+
+# Sirius Eye
+
+Sirius Eye is a social networking platform with the goal of fostering peace through art.
+
+# Group Users
+
+## Friends Collection [/friends?page]
+
+### List All Friends [GET]
+
++ Parameters
+    + page: 1 (optional, number) - The page of friends to return
+
++ Response 200 (application/json)
+
+### Add A Friend [POST]
+
+Add a user as a friend.
+
++ Request (application/json)
+
+        - email address
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /friends/i2u3r8dh
+
+    + Body
+
+            - id
+            
 swagger: '2.0'
 info:
   title: Sirius Eye
