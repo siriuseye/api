@@ -16,6 +16,17 @@ Sirius Eye is a social networking platform with the goal of fostering peace thro
 
 + Response 200 (application/json)
 
++ Attributes (array)
+    - (object)
+        - id: skdjfh423
+        - username: testuser
+    - (object)
+        - id: ksjdfh3455
+        - username: testuser0
+    - (object)
+        - id: dlknfglw45s
+        - username: testuser1
+
 ### Add A Friend [POST]
 
 Add a user as a friend.
@@ -33,34 +44,41 @@ Add a user as a friend.
     + Body
 
             - id
+
+## Users [/users]
+
+### List [GET]
+
++ Response 201 (application/json)
+
+              - id: l123i4hj234kjlh
+                username: bob
+              - id: l1223kj4hnnjj1l
+                username: alice
+
+
+# Group Authentication
+
+## Login [/login]
+
+### Authenticate [POST]
+
++ Request (application/json)
+
+        - email
+        - password
+
++ Response 201 (application/json)
+
+        - token: lqk34jh2lk34hjjh45
+
+
+## Params [/login/params]
             
-swagger: '2.0'
-info:
-  title: Sirius Eye
-  description: A social networking platform with the aim of peace through art.
-  version: "0.1"
-host: seye.apiary.io
-basePath: /api/v1/
-schemes:
-  - http
-consumes:
-  - application/json
-produces:
-  - application/json
-paths:
-  /login/params:
-    x-summary: OAuth params
-    get:
-      description: Parameters for implicit OAuth authentications
-      responses:
-        200:
-          description: Auth parameters for various services
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/AuthEndpoint'
-          examples:
-            application/json:
+### List [GET]
+
++ Response 200 (application/json)
+
               - service: google
                 response_type: token
                 client_id: googl-234kjh3krjh4234
@@ -71,37 +89,6 @@ paths:
                 client_id: fb-234kjh3krjh4234
                 redirect_uri: https://siriuseye.com/login/confirm?code=2345i8dfj
                 scope: read
-  /login:
-    x-summary: Authenticate
-    x-description: 'Prove identity to the system'
-    post:
-      summary: 'Connect with email address'
-      parameters:
-        - schema:
-            $ref: '#/definitions/Login'
-          in: body
-          name: body
-      responses:
-        200:
-          description: 'Auth token'
-          schema:
-            $ref: '#/definitions/AuthToken'
-          examples:
-            application/json:
-              token: lqk34jh2lk34hjjh45
-  /users:
-    x-summary: Joined users
-    x-description: 'List joined users'
-    get:
-      responses:
-        200:
-          description: 'Auth'
-          examples:
-            application/json:
-              - id: l123i4hj234kjlh
-                username: bob
-              - id: l1223kj4hnnjj1l
-                username: alice
   /blogs:
     x-summary: Blog posts
   /locations:
