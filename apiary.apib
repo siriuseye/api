@@ -9,7 +9,7 @@ Sirius Eye is a social networking platform with the goal of fostering peace thro
 
 ## Connected Users [/users?online,page]
 
-### Logged In [GET]
+### List Logged In [GET]
 
 Connected users
 
@@ -28,7 +28,7 @@ Connected users
 
 ## Users [/users]
 
-### All [GET]
+### List All [GET]
 
 System users
 
@@ -41,8 +41,7 @@ System users
             - id: l1223kj4hnnjj1l
             - username: alice
 
-
-## Friends Collection [/friends?page]
+## Friends Collection [/friends/{id}?page]
 
 ### List All Friends [GET]
 
@@ -81,6 +80,16 @@ Add a user as a friend.
 
     + Attributes
         - id: 23kjh234jkh5
+        - username: testuser
+
+### Remove A Friend [DELETE]
+
++ Parameters
+    - id: sjkwehr4235kj23
+
++ Response 200
+    + Attributes
+        - id: sjkwehr4235kj23
         - username: testuser
 
 # Group Authentication
