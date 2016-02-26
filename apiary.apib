@@ -98,9 +98,24 @@ Add a user as a friend.
 
 # Group Blogs
 
-## Manage Blogs [/blogs]
+## Blogs [/blogs?tag]
 
 Blog posts
+
+### List [GET]
+
++ Parameters
+    - tag: lifestyle - Tag to filter on
+    
++ Response 200 (application/json)
+
+    + Attributes (array)
+        - (object)
+            - title: `Easy-E's Latest`
+            - body: This is a blog post
+        - (object)
+            - title: `Hard-E's Latest`
+            - body: This is a blog post
 
 # Group Locations
 
