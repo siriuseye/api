@@ -7,6 +7,39 @@ Sirius Eye is a social networking platform with the goal of fostering peace thro
 
 # Group Users
 
+## Users [/users?online]
+
+### Logged In [GET]
+
+Connected users
+
++ Parameters
+    - online: true (required)
+
++ Response 200 (application/json)
+
+    + Attributes (array)
+        - (object)
+            - id: l123i4hj234kjlh
+            - username: bob
+        - (object)
+            - id: l1223kj4hnnjj1l
+            - username: alice
+
+### All [GET]
+
+System users
+
++ Response 200 (application/json)
+    + Attributes (array)
+        - (object)
+            - id: l123i4hj234kjlh
+            - username: bob
+        - (object)
+            - id: l1223kj4hnnjj1l
+            - username: alice
+
+
 ## Friends Collection [/friends?page]
 
 ### List All Friends [GET]
@@ -47,18 +80,6 @@ Add a user as a friend.
     + Attributes
         - id: 23kjh234jkh5
         - username: testuser
-
-## Users [/users]
-
-### List [GET]
-
-+ Response 201 (application/json)
-
-              - id: l123i4hj234kjlh
-                username: bob
-              - id: l1223kj4hnnjj1l
-                username: alice
-
 
 # Group Authentication
 
@@ -102,7 +123,7 @@ Add a user as a friend.
 
 Blog posts
 
-### List [GET]
+### List Posts [GET]
 
 + Parameters
     - tag: lifestyle - Tag to filter on
@@ -119,9 +140,18 @@ Blog posts
 
 # Group Locations
 
-## Manage Locations [/locations]
+## Manage Locations [/locations?lat,long]
 
 Check-ins
+
+### List Posts [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array)
+        - (object)
+            - name: Local 16
+            - description: Bar
 
 # Group Events
 
