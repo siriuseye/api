@@ -107,7 +107,6 @@ Add a user as a friend.
 
         - token: lqk34jh2lk34hjjh45
 
-
 ## Params [/login/params]
 
 + Attributes
@@ -164,6 +163,45 @@ Blog posts
             - published_at: `2014-02-01T014:28:56.321-10:00`
             - created_at: `2014-02-01T10:28:56.321-10:00`
             - last_edited_at: `2014-02-01T11:28:56.321-10:00`
+
+# Group Tags
+
+## Manage Tags [/tags]
+
+Categorizations
+
+### List Tags [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array)
+        - (object)
+            - name: Music
+            - id: we3jklrh423
+        - (object)
+            - name: News
+            - id: ioj31234klj
+
+### Add Tag
+
++ Request
+
+    + Attributes
+      - name: New Tag
+      - parent: kl3rhj234j - parent id
+
++ Response 200 (application/json)
+
+    + Attributes (array)
+        - (object)
+            - name: Music
+            - id: we3jklrh423
+        - (object)
+            - name: News
+            - id: ioj31234klj
+
+
+# Group Reactions
 
 # Group Locations
 
